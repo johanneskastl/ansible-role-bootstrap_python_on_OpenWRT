@@ -1,0 +1,18 @@
+galaxy_info:
+  role_name: 'bootstrap_python_on_OpenWRT'
+  author: 'Johannes Kastl'
+  description: 'Install python3 and other packages needed for managing OpenWRT via ansible'
+  company: 'B1 Systems GmbH'
+
+  license: 'BSD-3-Clause'
+
+  min_ansible_version: 2.4
+
+  platforms:
+  - name: OpenWrt
+    versions:
+    - 21.02
+
+  galaxy_tags: []
+
+dependencies: []
