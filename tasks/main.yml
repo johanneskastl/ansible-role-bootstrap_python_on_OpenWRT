@@ -1,0 +1,89 @@
+---
+# bootstrap_python_on_OpenWRT/tasks/main.yml
+
+#
+# update opkg cache
+#
+
+- name: 'Run opkg update'
+  raw: '/bin/opkg update'
+  args:
+    executable: '/bin/ash'
+  changed_when: 'false'
+
+#
+# python3 packages
+# python3-light python3-base libffi python3-logging python3-multiprocessing python3-distutils python3-email'
+#
+- name: 'Install python3 package python3-light required by Ansible'
+  raw: '/bin/opkg install python3-light'
+  args:
+    executable: '/bin/ash'
+  register: opkg_install_python3_light
+  changed_when: '"installed in root is up to date" not in opkg_install_python3_light.stdout'
+
+- name: 'Install python3 package python3-base required by python3-light'
+  raw: '/bin/opkg install python3-base'
+  args:
+    executable: '/bin/ash'
+  register: opkg_install_python3_base
+  changed_when: '"installed in root is up to date" not in opkg_install_python3_base.stdout'
+
+- name: 'Install python3 package libffi required by python3-light'
+  raw: '/bin/opkg install libffi'
+  args:
+    executable: '/bin/ash'
+  register: opkg_install_libffi
+  changed_when: '"installed in root is up to date" not in opkg_install_libffi.stdout'
+
+- name: 'Install python3 package python3-logging required by Ansible'
+  raw: '/bin/opkg install python3-logging'
+  args:
+    executable: '/bin/ash'
+  register: opkg_install_python3_logging
+  changed_when: '"installed in root is up to date" not in opkg_install_python3_logging.stdout'
+
+- name: 'Install python3 package python3-multiprocessing required by Ansible'
+  raw: '/bin/opkg install python3-multiprocessing'
+  args:
+    executable: '/bin/ash'
+  register: opkg_install_python3_multiprocessing
+  changed_when: '"installed in root is up to date" not in opkg_install_python3_multiprocessing.stdout'
+
+- name: 'Install python3 package python3-distutils required by Ansible'
+  raw: '/bin/opkg install python3-distutils'
+  args:
+    executable: '/bin/ash'
+  register: opkg_install_python3_distutils
+  changed_when: '"installed in root is up to date" not in opkg_install_python3_distutils.stdout'
+
+- name: 'Install python3 package python3-email required by python3-distutils'
+  raw: '/bin/opkg install python3-email'
+  args:
+    executable: '/bin/ash'
+  register: opkg_install_python3_email
+  changed_when: '"installed in root is up to date" not in opkg_install_python3_email.stdout'
+
+#
+# system packages
+#
+- name: 'Install system package shadow-usermod required for managing users'
+  raw: '/bin/opkg install shadow-usermod'
+  args:
+    executable: '/bin/ash'
+  register: opkg_install_shadow_usermod
+  changed_when: '"installed in root is up to date" not in opkg_install_shadow_usermod.stdout'
+
+- name: 'Install system package shadow-useradd required for managing users'
+  raw: '/bin/opkg install shadow-useradd'
+  args:
+    executable: '/bin/ash'
+  register: opkg_install_shadow_useradd
+  changed_when: '"installed in root is up to date" not in opkg_install_shadow_useradd.stdout'
+
+- name: 'Install system package shadow-groupmod required for managing groups'
+  raw: '/bin/opkg install shadow-groupmod'
+  args:
+    executable: '/bin/ash'
+  register: opkg_install_shadow_groupmod
+  changed_when: '"installed in root is up to date" not in opkg_install_shadow_groupmod.stdout'
