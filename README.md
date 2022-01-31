@@ -37,7 +37,13 @@ None
 Example Playbook
 ----------------
 
+The example playbook disabling gathering of facts, which would fail as no python is installed yet. It disables `become` aka sudo or su, and hardcodes the `root` user.
+
     - hosts: servers
+      gather_facts: 'false'
+      become: 'false'
+      vars:
+        ansible_user: 'root'
       roles:
         - { role: 'johanneskastl.bootstrap_python_on_OpenWRT' }
 
