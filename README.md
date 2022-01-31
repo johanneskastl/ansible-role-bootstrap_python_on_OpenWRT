@@ -47,6 +47,17 @@ The example playbook disabling gathering of facts, which would fail as no python
       roles:
         - { role: 'johanneskastl.bootstrap_python_on_OpenWRT' }
 
+You can test whether ansible is fully working by pinging the host:
+
+```
+ansible -m ping openwrt -e ansible_user=root
+[WARNING]: sftp transfer mechanism failed on [openwrt]. Use ANSIBLE_DEBUG=1 to see detailed information
+openwrt | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+```
+
 License
 -------
 
