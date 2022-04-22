@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: 'bootstrap_python_on_OpenWRT'
+  namespace: 'johanneskastl'
   author: 'Johannes Kastl'
   description: 'Install python3 and other packages needed for managing OpenWRT via ansible'
   company: 'B1 Systems GmbH'
