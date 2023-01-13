@@ -64,6 +64,20 @@
   register: opkg_install_python3_email
   changed_when: '"installed in root is up to date" not in opkg_install_python3_email.stdout'
 
+- name: 'Install python3 package python3-urllib required by Ansible'
+  raw: '/bin/opkg install python3-urllib'
+  args:
+    executable: '/bin/ash'
+  register: opkg_install_python3_urllib
+  changed_when: '"installed in root is up to date" not in opkg_install_python3_urllib.stdout'
+
+- name: 'Install python3 package python3-ctypes required by Ansible'
+  raw: '/bin/opkg install python3-ctypes'
+  args:
+    executable: '/bin/ash'
+  register: opkg_install_python3_ctypes
+  changed_when: '"installed in root is up to date" not in opkg_install_python3_ctypes.stdout'
+
 #
 # system packages
 #
