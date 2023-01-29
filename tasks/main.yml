@@ -81,23 +81,5 @@
 #
 # system packages
 #
-- name: 'Install system package shadow-usermod required for managing users'
-  ansible.builtin.raw: '/bin/opkg install shadow-usermod'
-  args:
-    executable: '/bin/ash'
-  register: opkg_install_shadow_usermod
-  changed_when: '"installed in root is up to date" not in opkg_install_shadow_usermod.stdout'
-
-- name: 'Install system package shadow-useradd required for managing users'
-  ansible.builtin.raw: '/bin/opkg install shadow-useradd'
-  args:
-    executable: '/bin/ash'
-  register: opkg_install_shadow_useradd
-  changed_when: '"installed in root is up to date" not in opkg_install_shadow_useradd.stdout'
-
-- name: 'Install system package shadow-groupmod required for managing groups'
-  ansible.builtin.raw: '/bin/opkg install shadow-groupmod'
-  args:
-    executable: '/bin/ash'
-  register: opkg_install_shadow_groupmod
-  changed_when: '"installed in root is up to date" not in opkg_install_shadow_groupmod.stdout'
+- name: Run tasks from shadow_utilities.yml
+  ansible.builtin.import_tasks: shadow_utilities.yml
