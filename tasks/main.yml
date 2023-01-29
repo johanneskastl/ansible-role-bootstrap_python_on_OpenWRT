@@ -16,6 +16,8 @@
 #
 - name: Run tasks from python3_light_installation.yml
   ansible.builtin.import_tasks: python3_light_installation.yml
+  when:
+    - save_space_with_python3_light | bool
 
 #
 # system packages
