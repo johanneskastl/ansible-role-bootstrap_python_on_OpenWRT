@@ -1,0 +1,12 @@
+---
+# bootstrap_python_on_OpenWRT/tasks/full_python3_installation.yml
+
+#
+# python3
+#
+- name: 'Install full python3 package required by Ansible'
+  ansible.builtin.raw: '/bin/opkg install python3'
+  args:
+    executable: '/bin/ash'
+  register: opkg_install_python3
+  changed_when: '"installed in root is up to date" not in opkg_install_python3.stdout'
