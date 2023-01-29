@@ -20,6 +20,14 @@
     - save_space_with_python3_light | bool
 
 #
+# Install full python3 if space permits
+#
+- name: Run tasks from full_python3_installation.yml
+  ansible.builtin.import_tasks: full_python3_installation.yml
+  when:
+    - not save_space_with_python3_light | bool
+
+#
 # system packages
 #
 - name: Run tasks from shadow_utilities.yml
