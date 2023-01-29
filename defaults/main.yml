@@ -1,0 +1,4 @@
+---
+# bootstrap_python_on_OpenWRT/defaults/main.yml
+
+save_space_with_python3_light: true
