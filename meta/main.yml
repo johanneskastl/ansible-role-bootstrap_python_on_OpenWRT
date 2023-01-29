@@ -13,6 +13,7 @@ galaxy_info:
     - name: OpenWrt
       versions:
         - '21.02'
+        - '22.03'
 
   galaxy_tags: []
 
