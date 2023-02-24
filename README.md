@@ -1,3 +1,5 @@
+![Ansible Lint](https://github.com/johanneskastl/ansible-role-bootstrap_python_on_OpenWRT/workflows/Ansible%20Lint/badge.svg)
+
 bootstrap_python_on_OpenWRT
 =========
 
