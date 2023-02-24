@@ -47,7 +47,7 @@ The example playbook disabling gathering of facts, which would fail as no python
       vars:
         ansible_user: 'root'
       roles:
-        - { role: 'johanneskastl.bootstrap_python_on_OpenWRT' }
+        - role: 'johanneskastl.bootstrap_python_on_OpenWRT'
 
 You can test whether ansible is fully working by pinging the host:
 
